@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:decorate xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	template="layout.xhtml">
+
+
+
+
+
+	<h:form id="form">
+		<p:panel id="panelCadastro" header="Cadastramento de Aluno">
+			<p:messages id="msgs" />
+
+
+			<h:panelGrid columns="2" cellpadding="5">
+				<p:outputLabel for="campoNome" value="Nome: " />
+				<p:inputText id="campoNome" value="#{alunoBean.aluno.nome}" required="true"/>
+			</h:panelGrid>
+
+			<h:panelGrid columns="2" cellpadding="5">
+				<p:outputLabel for="campoEmail" value="Email: " />
+				<p:inputText id="campoEmail" value="#{alunoBean.aluno.email}" required="true"/>
+			</h:panelGrid>
+
+			<h:panelGrid columns="2" cellpadding="5">
+				<p:outputLabel for="campoMatricula" value="Matrícula: " />
+				<p:inputText id="campoMatricula" value="#{alunoBean.aluno.matricula}" required="true" />
+			</h:panelGrid>
+
+			<h:panelGrid columns="2">
+				<p:outputLabel for="campoDataNascimento" value="Data de nascimento: " />
+				<p:inputMask id="campoDataNascimento" mask="99/99/9999" value="#{alunoBean.aluno.dataNascimento}">
+					<f:convertDateTime type="date" pattern="dd/MM/yyyy" />
+				</p:inputMask>
+			</h:panelGrid>
+
+			<h:panelGrid columns="2" align="center" cellpadding="5">
+				<p:commandButton value="Salvar" action="#{alunoBean.salvar()}" update=":form" />
+			</h:panelGrid>
+		</p:panel>
+		
+
+		
+	</h:form>
+
+
+</ui:decorate>
